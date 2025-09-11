@@ -1,52 +1,107 @@
 using UnityEngine;
+using UnityEngine.Diagnostics;
+using UnityEngine.LowLevelPhysics;
 
-public class Player : MonoBehaviour
+public class Personagem : MonoBehaviour
 {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    //public float velocidade = 5;
-    //public float velocidadeMaxima = 5;
-    //public float velocidadeMin = -5;
-    //public float forcaPulo = 10;
-    //bool podePular = true;
+    Transform npc;
+    Rigidbody2D rigi;
+    public int velocidade = 1;
+    public float horizon;
+    public float verti;
+    public bool cutscene = false;
 
-    
-    //Rigidbody2D rigidbody;
-    //void Start()
+    void Start()
+    {
+        rigi = transform.GetComponent<Rigidbody2D>();
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!cutscene)
+        {
+
+            ProcessaInputs();
+        }
+        //RotacionaCutscene();
+    }
+
+    private void FixedUpdate()
+    {
+        //cutscene = false;
+        MovePers();
+
+
+
+        //Rotaciona();
+
+        // RotacionaMouse();
+
+    }
+
+    void ProcessaInputs()
+    {
+        horizon = Input.GetAxisRaw("Horizontal");
+        verti = Input.GetAxisRaw("Vertical");
+
+    }
+    void MovePers()
+    {
+        Vector2 movimento = new Vector2(horizon, verti);
+
+        if (movimento.magnitude > 0)
+        {
+            movimento = movimento.normalized;
+        }
+
+        movimento = movimento * velocidade;
+        rigi.linearVelocity = movimento;
+
+    }
+
+    void Rotaciona()
+    {
+        // return earle
+        if (verti == 0 && horizon == 0)
+        {
+            return;
+        }
+
+        float angulo = Mathf.Atan2(verti, horizon) * Mathf.Rad2Deg;
+        rigi.rotation = angulo;
+    }
+
+    //void RotacionaMouse()
     //{
-    //    rigidbody = transform.GetComponent<Rigidbody2D>();
+    //    Vector3 poseMundMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //    Util.OlharObj(transform, poseMundMouse);
     //}
 
-    //// Update is called once per frame
-    //void Update()
+    //void RotacionaCutscene()
     //{
-    //    float horizontal = Input.GetAxisRaw("Horizontal");
 
-    //    horizontal = horizontal * velocidade * Time.deltaTime;
 
-    //    Vector2 movimento = new Vector2(horizontal, 0);
-
-    //    rigidbody.linearVelocity += movimento;
-    //    rigidbody.linearVelocityX = Mathf.Clamp(rigidbody.linearVelocityX, velocidadeMin, velocidadeMaxima);
-
-    //    bool pulo = Input.GetButtonDown("Jump");
-
-    //    if (pulo == true && podePular == true)
+    //    if (Input.GetKey(KeyCode.T))
     //    {
-    //        rigidbody.AddForce(new Vector2(0, forcaPulo), ForceMode2D.Impulse);
-    //        podePular = false;
-    //    }
-    //}
+    //        cutscene = true;
+    //        Util.OlharObj(transform, GameObject.Find("NPC").gameObject.transform.position);
 
-    //forma 1 de pulo com colisão
-    //void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //   // if (collision.gameObject.layer == LayerMask.GetMask("camadaChao"))
-    //        if (collision.gameObject.layer == Constrains.camadaChao)
+
+    //    }
+
+
+    //    if (Input.GetKey(KeyCode.G) && cutscene == true)
     //    {
-    //        podePular = true;
+    //        cutscene = false;
+    //        return;
+
     //    }
+
+
     //}
-
-
 }
-
