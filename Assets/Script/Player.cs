@@ -1,21 +1,27 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.LowLevelPhysics;
+using System.Drawing;
 
-public class Personagem : MonoBehaviour
+public class Player : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    Transform npc;
-    Rigidbody2D rigi;
+   
     public int velocidade = 1;
     public float horizon;
     public float verti;
     public bool cutscene = false;
-
+    Vector2 vect;
+    Transform npc;
+    Rigidbody2D rigi;
+    TextMeshProUGUI texto;
+    float cristaly;
     void Start()
     {
         rigi = transform.GetComponent<Rigidbody2D>();
+        texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
 
 
     }
@@ -38,7 +44,7 @@ public class Personagem : MonoBehaviour
 
 
 
-        //Rotaciona();
+        Rotaciona();
 
         // RotacionaMouse();
 
@@ -60,6 +66,8 @@ public class Personagem : MonoBehaviour
         }
 
         movimento = movimento * velocidade;
+
+
         rigi.linearVelocity = movimento;
 
     }
@@ -104,4 +112,32 @@ public class Personagem : MonoBehaviour
 
 
     //}
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        //if (collision.CompareTag("Abismo") == true)
+        //{
+        //    transform.position = vect;
+        //    n = 0;
+
+
+        //    Debug.Log("Parabéns !! Você pegou:");
+
+            
+
+
+        //}
+        if (collision.gameObject.name.Contains("cristal") == true)
+        {
+            cristaly++;
+            Destroy(collision.gameObject);
+
+            //Debug.Log("Parabéns !! Você pegou:" + n++);
+
+            texto.text = " <color=purple>" + cristaly + "</color> /5";
+        }
+    }
 }
