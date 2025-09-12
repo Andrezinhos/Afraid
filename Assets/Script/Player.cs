@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     public float verti;
     public bool cutscene = false;
     Vector2 vect;
-    Transform npc;
+    Animator anima;
+    //Transform npc;
     Rigidbody2D rigi;
     TextMeshProUGUI texto;
     float cristaly;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rigi = transform.GetComponent<Rigidbody2D>();
+        anima = transform.GetComponent<Animator>();
         //texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
 
 
@@ -79,6 +81,10 @@ public class Player : MonoBehaviour
         if (verti == 0 && horizon == 0)
         {
             return;
+        }
+        if (verti < 0.1f && horizon > -0.1f)
+        {
+            anima.SetBool("estaAndando", true);
         }
 
         float angulo = Mathf.Atan2(0, horizon) * Mathf.Rad2Deg;
