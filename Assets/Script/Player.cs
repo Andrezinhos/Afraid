@@ -12,26 +12,34 @@ public class Player : MonoBehaviour
     public int velocidade = 1;
     public float horizon;
     public float verti;
-    public bool cutscene = false;
+    public bool cutscene = false;  
+    float cristaly;
+    int morte;
+    Transform chave;
     Vector2 vect;
     Animator anima;
     //Transform npc;
     Rigidbody2D rigi;
     TextMeshProUGUI texto;
-    float cristaly;
-
+    TextMeshProUGUI texto2;
+  
     void Start()
     {
         rigi = transform.GetComponent<Rigidbody2D>();
         anima = transform.GetComponent<Animator>();
-        //texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
-
+        texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
+        texto2 = GameObject.Find("Morte").transform.GetComponent<TextMeshProUGUI>();
+        vect = transform.position;
+        chave = GameObject.Find("Chaveorigem").transform;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        Transform Instanciado = Instantiate(chave);
+        Instanciado.position = transform.position;
+        Instanciado.GetComponent<Chave>().enabled = true;
         if (!cutscene)
         {
 
@@ -149,26 +157,38 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        //if (collision.CompareTag("Abismo") == true)
-        //{
-        //    transform.position = vect;
-        //    n = 0;
+        if (collision.gameObject.name.Contains("dark") == true)
+        {
+            transform.position = vect;
+            morte++;
 
 
-        //    Debug.Log("Parabéns !! Você pegou:");
+            Debug.Log("Parabéns !! Você pegou:");
 
-            
+            texto2.text = " <color=purple>" + morte + "</color> /5";
 
 
-        //}
-        //if (collision.gameObject.name.Contains("cristal") == true)
-        //{
-        //    cristaly++;
-        //    Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name.Contains("cristal") == true)
+        {
+            cristaly++;
+            Destroy(collision.gameObject);
 
-        //    //Debug.Log("Parabéns !! Você pegou:" + n++);
+            //Debug.Log("Parabéns !! Você pegou:" + n++);
 
-        //    texto.text = " <color=purple>" + cristaly + "</color> /5";
-        //}
+            texto.text = " <color=purple>" + cristaly + "</color> /5";
+
+            if(cristaly == 1)
+            {
+                Transform Instanciado = Instantiate(chave);
+                Instanciado.position = transform.position;
+                Instanciado.GetComponent<Chave>().enabled = false;
+
+                if (collision.gameObject.name.Contains("chaoDestroy") == true)
+                {
+                    Destroy(collision.gameObject);
+                }
+            }
+        }
     }
 }
