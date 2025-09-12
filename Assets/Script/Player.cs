@@ -18,10 +18,11 @@ public class Player : MonoBehaviour
     Rigidbody2D rigi;
     TextMeshProUGUI texto;
     float cristaly;
+
     void Start()
     {
         rigi = transform.GetComponent<Rigidbody2D>();
-        texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
+        //texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
 
 
     }
@@ -130,14 +131,14 @@ public class Player : MonoBehaviour
 
 
         //}
-        if (collision.gameObject.name.Contains("cristal") == true)
-        {
-            cristaly++;
-            Destroy(collision.gameObject);
+        //if (collision.gameObject.name.Contains("cristal") == true)
+        //{
+        //    cristaly++;
+        //    Destroy(collision.gameObject);
 
-            //Debug.Log("Parabéns !! Você pegou:" + n++);
+        //    //Debug.Log("Parabéns !! Você pegou:" + n++);
 
-            texto.text = " <color=purple>" + cristaly + "</color> /5";
-        }
+        //    texto.text = " <color=purple>" + cristaly + "</color> /5";
+        //}
     }
 }
