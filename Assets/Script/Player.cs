@@ -73,22 +73,46 @@ public class Player : MonoBehaviour
 
         rigi.linearVelocity = movimento;
 
+        if (horizon < 0.1f && horizon > -0.1f && verti < 0.1f && verti > -0.1f )
+        {
+            anima.SetBool("estaAndando", false);
+        }
+        else
+        {
+            anima.SetBool("estaAndando", true);
+        }
+ 
+       
+
+        
+
+    
     }
 
     void Rotaciona()
     {
         // return earle
-        if (verti == 0 && horizon == 0)
+        if (horizon == 1)
         {
-            return;
-        }
-        if (verti < 0.1f && horizon > -0.1f)
-        {
-            anima.SetBool("estaAndando", true);
+          transform.eulerAngles = new Vector2(0, 0);
+ 
         }
 
-        float angulo = Mathf.Atan2(0, horizon) * Mathf.Rad2Deg;
-        rigi.rotation = angulo;
+        if(horizon == -1)
+        {
+            transform.eulerAngles = new Vector2(0, 180);
+        }
+        if (horizon == 1)
+        {
+            transform.eulerAngles = new Vector2(0, 0);
+
+        }
+
+        if (horizon == -1)
+        {
+            transform.eulerAngles = new Vector2(0, 180);
+        }
+        
     }
 
     //void RotacionaMouse()
