@@ -26,8 +26,6 @@ public class Inputteste : MonoBehaviour
     void FixedUpdate()
     {
         MoveJogador();
-        //RotacionarMovimento();
-        //RotacionaMouse();
     }
 
     void ProcessaInputs()
@@ -47,16 +45,4 @@ public class Inputteste : MonoBehaviour
 
         rigib.linearVelocity = move;
     }
-
-    //void RotacionarMovimento()
-    //{
-    //    //return early
-    //    if (vertical == 0 && horizontal == 0)
-    //    {
-    //        return;
-    //    }
-
-    //    float angulo = Mathf.Atan2(vertical, horizontal) * Mathf.Rad2Deg;
-    //    rigib.rotation = angulo;
-    //}
 }

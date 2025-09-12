@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 3d09e5ad983211e4eb206d24651d8819
+guid: 61ce4d8bd8d70f04b90dca7a7adbac52
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8068893732228476708
-    second: MAPA COM TEXTURA (1)_0
+      213: -8328047635980353808
+    second: boneco_0
+  - first:
+      213: 6340235687809321328
+    second: boneco_1
+  - first:
+      213: 6178702981939421366
+    second: boneco_2
+  - first:
+      213: -8970832115134489568
+    second: boneco_3
+  - first:
+      213: -5781488605264111171
+    second: boneco_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -28,7 +40,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMipmapLimit: 1
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -37,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,14 +59,14 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
-  spriteMeshType: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 0
+  alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
@@ -72,10 +84,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +138,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MAPA COM TEXTURA (1)_0
+      name: boneco_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1280
-        height: 1280
+        x: 3
+        y: 994
+        width: 957
+        height: 1523
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +153,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd05520c6e7850090800000000000000
-      internalID: -8068893732228476708
+      spriteID: 0fefbd88cc4dc6c80800000000000000
+      internalID: -8328047635980353808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boneco_1
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 975
+        width: 923
+        height: 1550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 079012c14ca0df750800000000000000
+      internalID: 6340235687809321328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boneco_2
+      rect:
+        serializedVersion: 2
+        x: 2285
+        y: 978
+        width: 678
+        height: 1548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b0652b30a92fb550800000000000000
+      internalID: 6178702981939421366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boneco_3
+      rect:
+        serializedVersion: 2
+        x: 3232
+        y: 982
+        width: 919
+        height: 1544
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02c1eb588b3318380800000000000000
+      internalID: -8970832115134489568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boneco_4
+      rect:
+        serializedVersion: 2
+        x: 4343
+        y: 982
+        width: 678
+        height: 1548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db99342ceb604cfa0800000000000000
+      internalID: -5781488605264111171
       vertices: []
       indices: 
       edges: []
@@ -151,7 +251,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MAPA COM TEXTURA (1)_0: -8068893732228476708
+      boneco_0: -8328047635980353808
+      boneco_1: 6340235687809321328
+      boneco_2: 6178702981939421366
+      boneco_3: -8970832115134489568
+      boneco_4: -5781488605264111171
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
