@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        float angulo = Mathf.Atan2(verti, horizon) * Mathf.Rad2Deg;
+        float angulo = Mathf.Atan2(0, horizon) * Mathf.Rad2Deg;
         rigi.rotation = angulo;
     }
 
