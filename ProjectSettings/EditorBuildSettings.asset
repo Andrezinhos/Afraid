@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FaseSelect.unity
     guid: 2504a3e341f77e2488058c124438995c
+  - enabled: 1
+    path: Assets/Scenes/Sair.unity
+    guid: f1a8668ea48ae484da9f942c294e6d8b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
