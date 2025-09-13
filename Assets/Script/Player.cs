@@ -1,10 +1,12 @@
+using JetBrains.Annotations;
+using System.Diagnostics.Tracing;
+using System.Drawing;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.LowLevelPhysics;
-using System.Drawing;
-using System.Diagnostics.Tracing;
-using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -186,26 +188,26 @@ public class Player : MonoBehaviour
             texto.text = " <color=purple>" + cristaly + "</color> /5";
 
         }
-        if (cristaly == 1)
+        if (cristaly == 37)
         {
             chave.enabled = true;
             chavecolide.enabled = true;
 
         }
 
+        //if (morte == 3)
+        //{
+        //    SceneManager.LoadScene("Ambiente");
+        //}
+
         if (collision.gameObject.name.Contains("chave") == true)
         {
             leveldisponivel = true;
             target.enabled = true;
         }
-
-
-
-
         //if (leveldisponivel == true)
         //{
-      
-
+             SceneManager.LoadScene("Ambiente");
         //}
 
 
