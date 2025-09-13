@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.LowLevelPhysics;
 using System.Drawing;
+using System.Diagnostics.Tracing;
+using JetBrains.Annotations;
 
 public class Player : MonoBehaviour
 {
@@ -13,10 +15,15 @@ public class Player : MonoBehaviour
     public float horizon;
     public float verti;
     public bool cutscene = false;  
-    float cristaly;
-    int morte;
-    Transform chave;
+  float cristaly;
+  int morte;
+    bool leveldisponivel = false;
+    SpriteRenderer chave;
+    FollowTarget target;
+    BoxCollider2D chavecolide;
     Vector2 vect;
+    Vector3 vect2;
+    bool ativo = false;
     Animator anima;
     //Transform npc;
     Rigidbody2D rigi;
@@ -30,16 +37,20 @@ public class Player : MonoBehaviour
         texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
         texto2 = GameObject.Find("Morte").transform.GetComponent<TextMeshProUGUI>();
         vect = transform.position;
-        chave = GameObject.Find("Chaveorigem").transform;
+       
+        chave = GameObject.Find("chave").GetComponent<SpriteRenderer>();
+        chavecolide = GameObject.Find("chave").GetComponent<BoxCollider2D>();
 
+        target = GameObject.Find("chave").GetComponent<FollowTarget>();
+        chave.enabled = !chave.enabled;
+        chavecolide.enabled = !chavecolide.enabled;
+        target.enabled = !target.enabled;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Transform Instanciado = Instantiate(chave);
-        Instanciado.position = transform.position;
-        Instanciado.GetComponent<Chave>().enabled = true;
+    
         if (!cutscene)
         {
 
@@ -161,10 +172,6 @@ public class Player : MonoBehaviour
         {
             transform.position = vect;
             morte++;
-
-
-            Debug.Log("Parabéns !! Você pegou:");
-
             texto2.text = " <color=purple>" + morte + "</color> /5";
 
 
@@ -178,17 +185,30 @@ public class Player : MonoBehaviour
 
             texto.text = " <color=purple>" + cristaly + "</color> /5";
 
-            if(cristaly == 1)
-            {
-                Transform Instanciado = Instantiate(chave);
-                Instanciado.position = transform.position;
-                Instanciado.GetComponent<Chave>().enabled = false;
-
-                if (collision.gameObject.name.Contains("chaoDestroy") == true)
-                {
-                    Destroy(collision.gameObject);
-                }
-            }
         }
+        if (cristaly == 1)
+        {
+            chave.enabled = true;
+            chavecolide.enabled = true;
+
+        }
+
+        if (collision.gameObject.name.Contains("chave") == true)
+        {
+            leveldisponivel = true;
+            target.enabled = true;
+        }
+
+
+
+
+        //if (leveldisponivel == true)
+        //{
+      
+
+        //}
+
+
     }
 }
+
