@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
     public float horizon;
     public float verti;
     public bool cutscene = false;  
-  float cristaly;
-  int morte;
+    float cristaly;
+    int morte;
     bool leveldisponivel = false;
     SpriteRenderer chave;
     FollowTarget target;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     {
         rigi = transform.GetComponent<Rigidbody2D>();
         anima = transform.GetComponent<Animator>();
-        texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
+        texto = GameObject.Find("cristal").transform.GetComponent<TextMeshProUGUI>();
         texto2 = GameObject.Find("Morte").transform.GetComponent<TextMeshProUGUI>();
         vect = transform.position;
        
@@ -102,12 +102,6 @@ public class Player : MonoBehaviour
         {
             anima.SetBool("estaAndando", true);
         }
- 
-       
-
-        
-
-    
     }
 
     void Rotaciona()
