@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     {
         rigi = transform.GetComponent<Rigidbody2D>();
         anima = transform.GetComponent<Animator>();
-        texto = GameObject.Find("cristal").transform.GetComponent<TextMeshProUGUI>();
+        texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
         texto2 = GameObject.Find("Morte").transform.GetComponent<TextMeshProUGUI>();
         vect = transform.position;
        
@@ -117,16 +117,6 @@ public class Player : MonoBehaviour
         {
             transform.eulerAngles = new Vector2(0, 180);
         }
-        if (horizon == 1)
-        {
-            transform.eulerAngles = new Vector2(0, 0);
-
-        }
-
-        if (horizon == -1)
-        {
-            transform.eulerAngles = new Vector2(0, 180);
-        }
         
     }
 
@@ -164,7 +154,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.name.Contains("dark") == true)
+        if (collision.gameObject.CompareTag("Inimigo") == true)
         {
             transform.position = vect;
             morte++;
@@ -179,10 +169,10 @@ public class Player : MonoBehaviour
 
             //Debug.Log("Parabéns !! Você pegou:" + n++);
 
-            texto.text = " <color=purple>" + cristaly + "</color> /5";
+            texto.text = " <color=purple>" + cristaly + "</color> /35";
 
         }
-        if (cristaly == 37)
+        if (cristaly == 35)
         {
             chave.enabled = true;
             chavecolide.enabled = true;
@@ -201,7 +191,7 @@ public class Player : MonoBehaviour
         }
         //if (leveldisponivel == true)
         //{
-             SceneManager.LoadScene("Ambiente");
+             //SceneManager.LoadScene("Ambiente");
         //}
 
 

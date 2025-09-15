@@ -29,13 +29,4 @@ public class Inimigo : MonoBehaviour
         transform.position += direcao * velo * Time.deltaTime;
 
     }
-
-    public void ReceberDano(int dano)
-    {
-        vidas -= dano;
-        if (vidas <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 }
