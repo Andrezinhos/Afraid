@@ -158,7 +158,7 @@ public class Player : MonoBehaviour
         {
             transform.position = vect;
             morte++;
-            texto2.text = " <color=purple>" + morte + "</color> /5";
+            texto2.text = " <color=purple>" + morte + "</color> /3";
 
 
         }
