@@ -12,11 +12,11 @@ public class Player : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-   
+
     public int velocidade = 1;
     public float horizon;
     public float verti;
-    public bool cutscene = false;  
+    public bool cutscene = false;
     float cristaly;
     int morte;
     bool leveldisponivel = false;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rigi;
     TextMeshProUGUI texto;
     TextMeshProUGUI texto2;
-  
+
     void Start()
     {
         rigi = transform.GetComponent<Rigidbody2D>();
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         texto = GameObject.Find("Cristal").transform.GetComponent<TextMeshProUGUI>();
         texto2 = GameObject.Find("Morte").transform.GetComponent<TextMeshProUGUI>();
         vect = transform.position;
-       
+
         chave = GameObject.Find("chave").GetComponent<SpriteRenderer>();
         chavecolide = GameObject.Find("chave").GetComponent<BoxCollider2D>();
 
@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+
         if (!cutscene)
         {
 
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
 
         rigi.linearVelocity = movimento;
 
-        if (horizon < 0.1f && horizon > -0.1f && verti < 0.1f && verti > -0.1f )
+        if (horizon < 0.1f && horizon > -0.1f && verti < 0.1f && verti > -0.1f)
         {
             anima.SetBool("estaAndando", false);
         }
@@ -109,15 +109,15 @@ public class Player : MonoBehaviour
         // return earle
         if (horizon == 1)
         {
-          transform.eulerAngles = new Vector2(0, 0);
- 
+            transform.eulerAngles = new Vector2(0, 0);
+
         }
 
-        if(horizon == -1)
+        if (horizon == -1)
         {
             transform.eulerAngles = new Vector2(0, 180);
         }
-        
+
     }
 
     //void RotacionaMouse()
@@ -191,7 +191,7 @@ public class Player : MonoBehaviour
         }
         //if (leveldisponivel == true)
         //{
-             //SceneManager.LoadScene("Ambiente");
+        //SceneManager.LoadScene("Ambiente");
         //}
 
 
