@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
         target.enabled = !target.enabled;
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -172,27 +173,29 @@ public class Player : MonoBehaviour
             texto.text = " <color=purple>" + cristaly + "</color> /35";
 
         }
-        if (cristaly == 35)
+        if (cristaly == 1)
         {
             chave.enabled = true;
             chavecolide.enabled = true;
 
         }
 
-        //if (morte == 3)
-        //{
-        //    SceneManager.LoadScene("Ambiente");
-        //}
+        if (morte == 3)
+        {
+            SceneManager.LoadScene("Ambiente");
+        }
 
         if (collision.gameObject.name.Contains("chave") == true)
         {
             leveldisponivel = true;
             target.enabled = true;
+
         }
-        //if (leveldisponivel == true)
-        //{
-        //SceneManager.LoadScene("Ambiente");
-        //}
+        //if ()
+        if (collision.gameObject.CompareTag("Porta") == true && leveldisponivel == true)
+        {
+            SceneManager.LoadScene("Menu");
+        }
 
 
     }
