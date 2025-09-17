@@ -6,6 +6,7 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.LowLevelPhysics;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -16,12 +17,16 @@ public class Player : MonoBehaviour
     public int velocidade = 1;
     public float horizon;
     public float verti;
-    public bool cutscene = false;
+  
     float cristaly;
     int morte;
+    int tempo;
+    public bool cutscene = false;
     bool leveldisponivel = false;
     SpriteRenderer chave;
     FollowTarget target;
+    Follow2 target2;
+    Follow targetcamera;
     BoxCollider2D chavecolide;
     Vector2 vect;
     Vector3 vect2;
@@ -42,11 +47,16 @@ public class Player : MonoBehaviour
 
         chave = GameObject.Find("chave").GetComponent<SpriteRenderer>();
         chavecolide = GameObject.Find("chave").GetComponent<BoxCollider2D>();
-
+        target2 = GameObject.Find("Main Camera").GetComponent<Follow2>();
         target = GameObject.Find("chave").GetComponent<FollowTarget>();
+        targetcamera = GameObject.Find("Main Camera").GetComponent<Follow>();
+
+
         chave.enabled = !chave.enabled;
         chavecolide.enabled = !chavecolide.enabled;
         target.enabled = !target.enabled;
+        target2.enabled = !target2.enabled;
+        targetcamera.enabled = true;
     }
 
 
@@ -149,7 +159,11 @@ public class Player : MonoBehaviour
 
 
     //}
-
+    void voltacamera()
+    {
+        targetcamera.enabled = true;
+        target2.enabled = false;
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -177,7 +191,11 @@ public class Player : MonoBehaviour
         {
             chave.enabled = true;
             chavecolide.enabled = true;
-
+            targetcamera.enabled = false;
+            target2.enabled = true;
+            Invoke("voltacamera", 3);
+            //tempo+=353;
+         
         }
 
         if (morte == 3)
@@ -191,11 +209,11 @@ public class Player : MonoBehaviour
             target.enabled = true;
 
         }
-        //if ()
-        if (collision.gameObject.CompareTag("Porta") == true && leveldisponivel == true)
-        {
-            SceneManager.LoadScene("Menu");
-        }
+        
+            if (collision.gameObject.CompareTag("Porta") == true && leveldisponivel == true)
+            {
+                SceneManager.LoadScene("Menu");
+            }
 
 
     }
