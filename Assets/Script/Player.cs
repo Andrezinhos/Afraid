@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
-    public int velocidade = 1;
+    public float velocidade = 1;
     public float horizon;
     public float verti;
   
@@ -26,7 +26,9 @@ public class Player : MonoBehaviour
     bool leveldisponivel = false;
     SpriteRenderer chave;
     FollowTarget target;
+
     Follow2 target2;
+    Inimigo target3;
     Follow targetcamera;
     BoxCollider2D chavecolide;
     Vector2 vect;
@@ -49,6 +51,7 @@ public class Player : MonoBehaviour
         chave = GameObject.Find("chave").GetComponent<SpriteRenderer>();
         chavecolide = GameObject.Find("chave").GetComponent<BoxCollider2D>();
         target2 = GameObject.Find("Main Camera").GetComponent<Follow2>();
+        target3 = GameObject.Find("dark").GetComponent<Inimigo>();
         target = GameObject.Find("chave").GetComponent<FollowTarget>();
         targetcamera = GameObject.Find("Main Camera").GetComponent<Follow>();
 
@@ -57,6 +60,7 @@ public class Player : MonoBehaviour
         chavecolide.enabled = !chavecolide.enabled;
         target.enabled = !target.enabled;
         target2.enabled = !target2.enabled;
+        target3.enabled = true;
         targetcamera.enabled = true;
     }
 
@@ -164,6 +168,7 @@ public class Player : MonoBehaviour
     {
         targetcamera.enabled = true;
         target2.enabled = false;
+        target3.enabled = true;
     }
 
 
@@ -188,12 +193,13 @@ public class Player : MonoBehaviour
 
             texto.text = " <color=purple>" + cristaly + "</color> /35";
 
-            if (cristaly == 35)
+            if (cristaly == 1)
             {
                 chave.enabled = true;
                 chavecolide.enabled = true;
                 targetcamera.enabled = false;
                 target2.enabled = true;
+                target3.enabled = false;
                 Invoke("voltacamera", 2);
                 //tempo+=353;
          
