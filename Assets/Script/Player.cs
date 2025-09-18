@@ -169,7 +169,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.CompareTag("Inimigo") == true)
+        if (collision.gameObject.name.Contains("dark") == true)
         {
             transform.position = vect;
             morte++;
@@ -177,6 +177,7 @@ public class Player : MonoBehaviour
 
 
         }
+
         if (collision.gameObject.name.Contains("cristal") == true)
         {
             cristaly++;
@@ -186,17 +187,19 @@ public class Player : MonoBehaviour
 
             texto.text = " <color=purple>" + cristaly + "</color> /35";
 
-        }
-        if (cristaly == 1)
-        {
-            chave.enabled = true;
-            chavecolide.enabled = true;
-            targetcamera.enabled = false;
-            target2.enabled = true;
-            Invoke("voltacamera", 3);
-            //tempo+=353;
+            if (cristaly == 1)
+            {
+                chave.enabled = true;
+                chavecolide.enabled = true;
+                targetcamera.enabled = false;
+                target2.enabled = true;
+                Invoke("voltacamera", 2);
+                //tempo+=353;
          
+            }
+
         }
+
 
         if (morte == 3)
         {
@@ -207,6 +210,7 @@ public class Player : MonoBehaviour
         {
             leveldisponivel = true;
             target.enabled = true;
+            chavecolide.enabled = false;
 
         }
         
