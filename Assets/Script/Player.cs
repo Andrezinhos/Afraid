@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public float verti;
   
     float cristaly;
+    float cristaly2;
     int morte;
     int tempo;
     public bool cutscene = false;
@@ -200,6 +201,28 @@ public class Player : MonoBehaviour
 
         }
 
+        if (collision.gameObject.name.Contains("cristalTuto") == true)
+        {
+            cristaly2++;
+            Destroy(collision.gameObject);
+
+            //Debug.Log("Parabéns !! Você pegou:" + n++);
+
+            texto.text = " <color=purple>" + cristaly + "</color> /35";
+
+            if (cristaly2 == 5)
+            {
+                chave.enabled = true;
+                chavecolide.enabled = true;
+                targetcamera.enabled = false;
+                target2.enabled = true;
+                Invoke("voltacamera", 2);
+                //tempo+=353;
+
+            }
+
+        }
+
 
         if (morte == 3)
         {
@@ -213,12 +236,16 @@ public class Player : MonoBehaviour
             chavecolide.enabled = false;
 
         }
-        
-            if (collision.gameObject.CompareTag("Porta") == true && leveldisponivel == true)
-            {
-                SceneManager.LoadScene("Menu");
-            }
 
+        if (collision.gameObject.name.Contains("PortaTuto") == true && leveldisponivel == true)
+        {
+            SceneManager.LoadScene("Ambiente");
+        }
+
+        if (collision.gameObject.CompareTag("Porta") == true && leveldisponivel == true)
+        {
+            SceneManager.LoadScene("Menu");
+        }
 
     }
 }
