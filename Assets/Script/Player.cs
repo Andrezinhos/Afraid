@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
 
             texto.text = " <color=purple>" + cristaly + "</color> /35";
 
-            if (cristaly == 35)
+            if (cristaly == 1)
             {
                 chave.enabled = true;
                 chavecolide.enabled = true;
@@ -250,7 +250,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Porta") == true && leveldisponivel == true)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Vitoria");
         }
 
     }

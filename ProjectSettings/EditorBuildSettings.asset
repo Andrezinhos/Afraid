@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: b4e8b223645449b469b12cac6f736fd7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TutorialGame.unity
     guid: 5a8d0c36640f4e84bad3003ed816eba1
   - enabled: 1
@@ -29,9 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sair.unity
     guid: f1a8668ea48ae484da9f942c294e6d8b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AfraidJogar.unity
     guid: d31dc91a8f577db44a510a157732dc4f
+  - enabled: 1
+    path: Assets/Scenes/Vitoria.unity
+    guid: c7545b5cdf0cbf0459426f1e9f7f5928
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
