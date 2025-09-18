@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
 
             texto.text = " <color=purple>" + cristaly + "</color> /35";
 
-            if (cristaly == 1)
+            if (cristaly == 35)
             {
                 chave.enabled = true;
                 chavecolide.enabled = true;
