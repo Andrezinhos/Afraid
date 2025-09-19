@@ -7,4 +7,10 @@ public class MenuAfraid : MonoBehaviour
     {
         SceneManager.LoadScene(cena);
     }
+
+    public void Fechar(string quit)
+    {
+        Application.Quit();
+    }
+
 }

@@ -2,7 +2,6 @@ using JetBrains.Annotations;
 using System.Diagnostics.Tracing;
 using System.Drawing;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.LowLevelPhysics;
@@ -173,14 +172,7 @@ public class Player : MonoBehaviour
         target3.enabled = true;
     }
 
-    void voltaMenu()
-    {
-        SceneManager.LoadScene("Menu");
-        if (menu == false && vitoria == true)
-        {
-            SceneManager.LoadScene("Menu");
-        }
-    }
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -203,7 +195,7 @@ public class Player : MonoBehaviour
 
             texto.text = " <color=purple>" + cristaly + "</color> /35";
 
-            if (cristaly == 1)
+            if (cristaly == 35)
             {
                 chave.enabled = true;
                 chavecolide.enabled = true;
