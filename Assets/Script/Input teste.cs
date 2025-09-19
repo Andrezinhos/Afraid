@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Inputteste : MonoBehaviour
 {
+    // não está mais sendo usado
     Rigidbody2D rigib;
 
     float horizontal;
