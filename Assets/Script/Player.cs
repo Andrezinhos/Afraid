@@ -17,7 +17,9 @@ public class Player : MonoBehaviour
     public float velocidade = 1;
     public float horizon;
     public float verti;
-  
+    bool menu = false;
+    bool vitoria = false;
+
     float cristaly;
     float cristaly2;
     int morte;
@@ -171,6 +173,14 @@ public class Player : MonoBehaviour
         target3.enabled = true;
     }
 
+    void voltaMenu()
+    {
+        SceneManager.LoadScene("Menu");
+        if (menu == false && vitoria == true)
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -229,10 +239,10 @@ public class Player : MonoBehaviour
 
         }
 
-
         if (morte == 3)
         {
-            SceneManager.LoadScene("Ambiente");
+            SceneManager.LoadScene("Derrota");
+            Invoke("voltaMenu", 2.5f);
         }
 
         if (collision.gameObject.name.Contains("chave") == true)
