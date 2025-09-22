@@ -19,10 +19,10 @@ public class Player : MonoBehaviour
     bool menu = false;
     bool vitoria = false;
 
-    float cristaly;
+    public float cristaly;
     float cristaly2;
     int morte;
-    int tempo;
+
     public bool cutscene = false;
     bool leveldisponivel = false;
     SpriteRenderer chave;
@@ -190,12 +190,16 @@ public class Player : MonoBehaviour
         {
             cristaly++;
             Destroy(collision.gameObject);
-
+            if(cristaly == 3)
+            {
+              GameObject.Find("dark").transform.GetComponent<Inimigo>().velo += 3.5f;
+            }
+         
             //Debug.Log("Parabéns !! Você pegou:" + n++);
 
             texto.text = " <color=purple>" + cristaly + "</color> /35";
 
-            if (cristaly == 35)
+            if (cristaly == 5)
             {
                 chave.enabled = true;
                 chavecolide.enabled = true;
@@ -216,7 +220,7 @@ public class Player : MonoBehaviour
 
             //Debug.Log("Parabéns !! Você pegou:" + n++);
 
-            texto.text = " <color=purple>" + cristaly + "</color> /35";
+            texto.text = " <color=purple>" + cristaly + "</color> /5";
 
             if (cristaly2 == 5)
             {

@@ -6,7 +6,7 @@ public class Inimigo : MonoBehaviour
     Vector2 inicio;
     public float velo = 5;
     public int vidas = 3;
-
+    
     void Start()
     {
         inicio = transform.position;
