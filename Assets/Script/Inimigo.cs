@@ -3,11 +3,13 @@ using UnityEngine;
 public class Inimigo : MonoBehaviour
 {
     Transform alvo;
+    Vector2 inicio;
     public float velo = 5;
     public int vidas = 3;
 
     void Start()
     {
+        inicio = transform.position;
         alvo = GameObject.FindWithTag("Player").transform;
     }
 
@@ -27,6 +29,15 @@ public class Inimigo : MonoBehaviour
         direcao = direcao.normalized;
 
         transform.position += direcao * velo * Time.deltaTime;
+
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") == true)
+        {
+            transform.position = inicio;
+        }    
 
     }
 }
