@@ -346,11 +346,7 @@ public class Player : MonoBehaviour
 
             texto.text = " <color=purple>" + cristaly + "</color> /10";
 
-<<<<<<< Updated upstream
             if (cristaly == 10 )
-=======
-            if (cristaly == 10)
->>>>>>> Stashed changes
             {
                 chave.enabled = true;
                 chavecolide.enabled = true;
