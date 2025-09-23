@@ -5,7 +5,7 @@ public class Inimigo : MonoBehaviour
     Transform alvo;
     Vector2 inicio;
     public float velo = 5;
-    public int vidas = 3;
+ 
     
     void Start()
     {
