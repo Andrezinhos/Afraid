@@ -2048,12 +2048,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1034454721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594431c4db023324a885a5d95f91fd05, type: 3}
+  m_Script: {fileID: 11500000, guid: d64f3c610d4de5c49951e5f29541e7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 7
   horizon: 0
   verti: 0
+  cristaly: 0
   cutscene: 0
 --- !u!1 &1060481366
 GameObject:
